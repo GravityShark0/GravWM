@@ -6,7 +6,7 @@ goal 2: is to make a one command setup from blinking cursor, to a completely ric
  
 i have 2 options
 remain suckless with dwm or
-use awesomewm or anything else to save my sanity
+use awesomewm, quitle or xmonad or bspwm to save my sanity
  
  
  
