@@ -12,18 +12,16 @@ use awesomewm, qtitle, xmonad, or bspwm to save my sanity
 option 1
 To be included:
 - wm: bloated dwm
-- terminal: st
-- app finder: dmenu
+- terminal: st (i am never leaving st)
+- launcher: dmenu/rofi
 - compositor: xcompmgr/pijulius picom
 - txt editor: nvchad
 - widgets: eww widgets
 - extra: xmenu
 
 option 2
+- else: same
 - wm: options
-- launcher: dmenu/rofi
-- comositor: xcompmgr/pijulius picom
-- text editor: nvchad
 - widgets: awesome widgets or eww widgets
  
 To Do:
