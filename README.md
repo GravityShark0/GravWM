@@ -2,8 +2,8 @@
 ### a quest to make the perfect the rice (or desktop environment?)
 
 
-goal 1: make a beutiful rice that still has a nice lightweight footprint
-goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm/de with my own theme and possibly allow for others
+- goal 1: make a beutiful rice that still has a nice lightweight footprint
+- goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm/de with my own theme and possibly allow for others
  
 i have 2 options
 remain suckless with dwm or
