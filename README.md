@@ -3,7 +3,7 @@
 
 
 - goal 1: make a beutiful rice that still has a nice lightweight footprint
-- goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm/de with my own theme and possibly allow for others
+- goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm with a nice theme
  
 i have 2 options
 - use current dwm build
