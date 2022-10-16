@@ -25,28 +25,10 @@ awesomewm 195-203m  2.2 and 2.2   74.0 and just laggy even when switching
 bmpanel
 Bmpanel — Lightweight, NETWM compliant panel.
 https://github.com/nsf/bmpanel2 || bmpanel2AUR
-Cairo-Dock — Highly customizable dock and launcher application.
-https://www.glx-dock.org/ || cairo-dock
-CoreAction — Side bar with some handy gadgets like system loads, calendar, calculator, notes etc. Part of C-Suite.
-https://cubocore.org/ || coreactionAUR
-Dash to Panel — A fully customizable icon taskbar for gnome-shell. Moves the dash into the GNOME main panel, similar to KDE Plasma and Windows 10.
-https://github.com/home-sweet-gnome/dash-to-panel || gnome-shell-extension-dash-to-panelAUR
-fbpanel — Lightweight, NETWM compliant desktop panel.
-https://aanatoly.github.io/fbpanel/ || fbpanelAUR
-GNOME Panel — Panel included in the GNOME Flashback desktop.
-https://wiki.gnome.org/Projects/GnomePanel || gnome-panel
-Latte — Dock based on Plasma frameworks that provides an elegant and intuitive experience for your tasks and plasmoids.
-https://invent.kde.org/plasma/latte-dock || latte-dock
 Lemonbar — A featherweight bar based on XCB. Provides UTF-8 support, background and foreground colors, text alignment, and not much more.
 https://github.com/LemonBoy/bar || lemonbar-gitAUR
 LXPanel — Lightweight X11 desktop panel and part of the LXDE desktop.
 https://lxde.org/ || lxpanel
-MATE Panel — Panel included in the MATE desktop.
-https://github.com/mate-desktop/mate-panel/ || mate-panel
-nwg-dock — GTK-based dock designed for the Sway window manager.
-https://github.com/nwg-piotr/nwg-dock || nwg-dockAUR
-nwg-panel — GTK-based panel designed for the Sway window manager.
-https://github.com/nwg-piotr/nwg-panel || nwg-panelAUR
 PerlPanel — The ideal accompaniment to a light-weight Window Manager such as OpenBox, or a desktop-drawing program like iDesk.
 https://savannah.nongnu.org/projects/perlpanel || perlpanel-gitAUR
 Plank — Elegant, simple, clean dock from pantheon desktop environment.
@@ -55,8 +37,6 @@ Polybar — a fast and easy-to-use tool for creating status bars.
 https://github.com/jaagr/polybar || polybar
 Tint2 — Simple panel/taskbar developed specifically for Openbox.
 https://gitlab.com/o9000/tint2 || tint2
-Xfce Panel — Panel included in the Xfce desktop.
-https://docs.xfce.org/xfce/xfce4-panel/start || xfce4-panel
 xmobar — A lightweight, text-based, status bar written in Haskell.
 https://archives.haskell.org/projects.haskell.org/xmobar/ || xmobar
 yambar — A modular and lightweight status panel for X11 and Wayland that goes to great lengths to be both CPU and battery efficient.
