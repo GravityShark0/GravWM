@@ -7,7 +7,7 @@
  
 i have 2 options
 remain suckless with dwm or
-use awesomewm, quitle, xmonad, or bspwm to save my sanity
+use awesomewm, qtitle, xmonad, or bspwm to save my sanity
 
 option 1
 To be included:
