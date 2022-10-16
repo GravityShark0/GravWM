@@ -11,33 +11,33 @@ use awesomewm, quitle, xmonad, or bspwm to save my sanity
 
 option 1
 To be included:
-wm: bloated dwm
-terminal: st
-app finder: dmenu
-compositor: xcompmgr/pijulius picom
-txt editor: nvchad
-widgets: eww widgets
-extra: xmenu
+- wm: bloated dwm
+- terminal: st
+- app finder: dmenu
+- compositor: xcompmgr/pijulius picom
+- txt editor: nvchad
+- widgets: eww widgets
+- extra: xmenu
 
 option 2
-wm: options
-launcher: dmenu/rofi
-comositor: xcompmgr/pijulius picom
-text editor: nvchad
-widgets: awesome widgets or eww widgets
+- wm: options
+- launcher: dmenu/rofi
+- comositor: xcompmgr/pijulius picom
+- text editor: nvchad
+- widgets: awesome widgets or eww widgets
  
 To Do:
-Make the Grav theme
-Setup the wm
-Maybe use polybar/lemonbar/tint2 or the default bar
-Setup st 
-Setup dmenu/rofi
-Setup compositor
+- Make the Grav theme
+- Setup the wm
+- Maybe use polybar/lemonbar/tint2 or the default bar
+- Setup st 
+- Setup dmenu/rofi
+- Setup compositor
 
-Setup nvchad
-Setup awesome/Eww widgets
+- Setup nvchad
+- Setup awesome/Eww widgets
 
 Maybe to do:
-Make a custom font
-Make 3 custom backgrounds
-Add a fish/zsh profile
+- Make a custom font
+- Make 3 custom backgrounds
+- Add a fish/zsh profile
