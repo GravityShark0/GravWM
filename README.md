@@ -5,6 +5,8 @@
 - goal 1: make a beutiful rice that still has a nice lightweight footprint
 - goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm with a nice theme
  
+- idea : have 2 versions or more to choose how much features depending on how powerful the system is minima (minimum of all the good features) and (gigantus all of the features 
+ 
 i have 2 options
 - use current dwm build
 - reconfigure dwm to be as lightweight as xmonad or use xmonad
@@ -57,7 +59,7 @@ To Do:
 - Make the Grav theme
 - Setup the wm
 - Maybe use polybar/lemonbar/tint2 or the default bar
-- Setup st 
+- Setup st 50%
 - Setup dmenu
 - Setup compositor
 - Setup nvchad
@@ -66,4 +68,8 @@ To Do:
 Maybe to do:
 - Make a custom font
 - Make 3 custom backgrounds
-- Add a fish/zsh profile
+- Add a fish/zsh/mksh profile
+
+Credits:
+- [Bakkeby](https://github.com/bakkeby/)
+for literally doing all the work for me by making flexipatch
