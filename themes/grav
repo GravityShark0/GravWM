@@ -1,0 +1,166 @@
+! dwm
+
+dwm.fonts:UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
+dwm.normfgcolor:#fdeffd
+dwm.normbgcolor:#0a060f
+dwm.normbordercolor:#141019
+dwm.normfloatcolor:#CA61C3
+
+dwm.selfgcolor:#e9dbe9
+dwm.selbgcolor:#9119AF
+dwm.selbordercolor:#9119AF
+dwm.selfloatcolor:#9119AF
+
+dwm.titlenormfgcolor:#fdeffd
+dwm.titlenormbgcolor:#0a060f
+dwm.titlenormbordercolor:#141019
+dwm.titlenormfloatcolor:#CA61C3
+
+dwm.titleselfgcolor:#e9dbe9
+dwm.titleselbgcolor:#9119AF
+dwm.titleselbordercolor:#9119AF
+dwm.titleselfloatcolor:#9119AF
+
+dwm.tagsnormfgcolor:#fdeffd
+dwm.tagsnormbgcolor:#0a060f
+dwm.tagsnormbordercolor:#141019
+dwm.tagsnormfloatcolor:#CA61C3
+
+dwm.tagsselfgcolor:#e9dbe9
+dwm.tagsselbgcolor:#9119AF
+dwm.tagsselbordercolor:#9119AF
+dwm.tagsselfloatcolor:#9119AF
+
+! dwm.hidnormfgcolor:#9119AF
+! dwm.hidnormbgcolor:#B920DF
+! dwm.hidselfgcolor:#0a060f
+! dwm.hidselbgcolor:#0a060f
+
+! dwm.urgfgcolor             :#e9dbe9
+! dwm.urgbgcolor             :
+! dwm.urgbordercolor         :
+! dwm.urgfloatcolor          :
+
+! dwm.scratchselfgcolor      :
+! dwm.scratchselbgcolor      :
+! dwm.scratchselbordercolor  :
+! dwm.scratchselfloatcolor   :
+
+! dwm.scratchnormfgcolor     :
+! dwm.scratchnormbgcolor     :
+! dwm.scratchnormbordercolor :
+! dwm.scratchnormfloatcolor  :
+
+!dwm.normTTBbgcolor         :
+!dwm.normLTRbgcolor         :
+!dwm.normMONObgcolor        :
+!dwm.normGRIDbgcolor        :
+!dwm.normGRD1bgcolor        :
+!dwm.normGRD2bgcolor        :
+!dwm.normGRDMbgcolor        :
+!dwm.normHGRDbgcolor        :
+!dwm.normDWDLbgcolor        :
+!dwm.normSPRLbgcolor        :
+!dwm.normfloatbgcolor       :
+!dwm.actTTBbgcolor          :
+!dwm.actLTRbgcolor          :
+!dwm.actMONObgcolor         :
+!dwm.actGRIDbgcolor         :
+!dwm.actGRD1bgcolor         :
+!dwm.actGRD2bgcolor         :
+!dwm.actGRDMbgcolor         :
+!dwm.actHGRDbgcolor         :
+!dwm.actDWDLbgcolor         :
+!dwm.actSPRLbgcolor         :
+!dwm.actfloatbgcolor        :
+!dwm.selTTBbgcolor          :
+!dwm.selLTRbgcolor          :
+!dwm.selMONObgcolor         :
+!dwm.selGRIDbgcolor         :
+!dwm.selGRD1bgcolor         :
+!dwm.selGRD2bgcolor         :
+!dwm.selGRDMbgcolor         :
+!dwm.selHGRDbgcolor         :
+!dwm.selDWDLbgcolor         :
+!dwm.selSPRLbgcolor         :
+!dwm.selfloatbgcolor        :
+
+
+! st
+st.font:            UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
+st.font2:           Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true
+!st.font2:           Symbols Nerd Font Mono:pixelsize=10:style=Regular:antialias=true:autohint=true
+
+st.borderpx:        15
+
+st.chscale:         1.0
+st.cwscale:         1.0
+
+st.blinktimeout:    800
+
+st.cursorshape:     4
+
+st.bellvolume:      0
+
+st.termname:        st-256color
+
+st.tabspaces:       8
+
+st.alpha:           0.95
+!st.alphaUnfocused: 0.6
+!st.grad_alpha:     0.54
+!st.stat_alpha:     0.46
+
+
+! colors
+st.foreground:   #fdeffd
+st.background:   #0a060f
+!st.background_unfocused: #200000
+!st.background_focused:   #191c25
+! vim select
+st.higtlightFg:  #fdeffd
+st.highlightBg:  #191c25
+! normal colors (black,red,green,yellow,blue,magenta,cyan,white)
+st.color0:       #2e313d
+st.color1:       #CF6363
+st.color2:       #64C48E
+st.color3:       #CFC463
+st.color4:       #5691BF
+st.color5:       #A25EC4
+st.color6:       #5BC2BB
+st.color7:       #b5b4c9
+! bright colors (black,red,green,yellow,blue,magenta,cyan,white)
+
+st.color8:       #5b5f71
+st.color9:       #FF7A7A
+st.color10:      #82FFB9
+st.color11:      #FFF17A
+st.color12:      #73C2FF
+st.color13:      #D37AFF
+st.color14:      #78FFF6
+st.color15:      #fdeffd
+
+! dim colors? (red,green,yellow,blue,magenta,cyan)
+!st.color16:     #cda869
+!st.color17:     #9b703f
+!st.color18:     #323537
+!st.color19:     #464b50
+!st.color20:     #838184
+!st.color21:     #c3c3c3
+
+!dmenu
+dmenu.font:           UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
+dmenu.background:     #0a060f
+dmenu.foreground:     #fdeffd
+dmenu.selbackground:  #1e1a23
+dmenu.selforeground:  #dfd1df
+dmenu.outbackground:  #141019
+dmenu.outforeground:  #f3e5f3
+dmenu.midbackground:  #141019
+dmenu.midforeground:  #f3e5f3
+dmenu.selhlbackground:#1e1a23
+dmenu.selhlforeground:#e9dbe9
+dmenu.hlbackground:   #141019
+dmenu.hlforeground:   #f3e5f3
+dmenu.hpbackground:   #141019
+dmenu.hpforeground:   #f3e5f3
