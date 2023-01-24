@@ -31,10 +31,11 @@ dwm.tagsselbgcolor:#9119AF
 dwm.tagsselbordercolor:#9119AF
 dwm.tagsselfloatcolor:#9119AF
 
-! dwm.hidnormfgcolor:#9119AF
-! dwm.hidnormbgcolor:#B920DF
-! dwm.hidselfgcolor:#0a060f
-! dwm.hidselbgcolor:#0a060f
+dwm.hidnormfgcolor:#cbbdcb
+dwm.hidnormbgcolor:#0a060f
+dwm.hidselfgcolor:#e9dbe9
+dwm.hidselbgcolor:#0a060f
+
 
 ! dwm.urgfgcolor             :#e9dbe9
 ! dwm.urgbgcolor             :
@@ -51,7 +52,7 @@ dwm.tagsselfloatcolor:#9119AF
 ! dwm.scratchnormbordercolor :
 ! dwm.scratchnormfloatcolor  :
 
-!dwm.normTTBbgcolor         :
+dwm.normTTBbgcolor         :#35062C
 !dwm.normLTRbgcolor         :
 !dwm.normMONObgcolor        :
 !dwm.normGRIDbgcolor        :
@@ -61,8 +62,8 @@ dwm.tagsselfloatcolor:#9119AF
 !dwm.normHGRDbgcolor        :
 !dwm.normDWDLbgcolor        :
 !dwm.normSPRLbgcolor        :
-!dwm.normfloatbgcolor       :
-!dwm.actTTBbgcolor          :
+dwm.normfloatbgcolor       :#10101E
+dwm.actTTBbgcolor          :#500943
 !dwm.actLTRbgcolor          :
 !dwm.actMONObgcolor         :
 !dwm.actGRIDbgcolor         :
@@ -72,8 +73,8 @@ dwm.tagsselfloatcolor:#9119AF
 !dwm.actHGRDbgcolor         :
 !dwm.actDWDLbgcolor         :
 !dwm.actSPRLbgcolor         :
-!dwm.actfloatbgcolor        :
-!dwm.selTTBbgcolor          :
+dwm.actfloatbgcolor        :#1A1A32
+dwm.selTTBbgcolor          :#6A0C59
 !dwm.selLTRbgcolor          :
 !dwm.selMONObgcolor         :
 !dwm.selGRIDbgcolor         :
@@ -83,8 +84,7 @@ dwm.tagsselfloatcolor:#9119AF
 !dwm.selHGRDbgcolor         :
 !dwm.selDWDLbgcolor         :
 !dwm.selSPRLbgcolor         :
-!dwm.selfloatbgcolor        :
-
+dwm.selfloatbgcolor        :#26264A
 
 ! st
 st.font:            UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
