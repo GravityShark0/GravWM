@@ -51,7 +51,7 @@
  * Patch: https://gist.github.com/danbyl/54f7c1d57fc6507242a95b71c3d8fdea
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_DWMBLOCKS_SIGUSR1_PATCH 1
+#define BAR_DWMBLOCKS_SIGUSR1_PATCH 0
 
 /* This patch shows the titles of all visible windows in the status bar
  * (as opposed to showing only the selected one).
@@ -151,7 +151,7 @@
  * This patch is incompatible with the extrabar patch.
  * https://dwm.suckless.org/patches/status2d/
  */
-#define BAR_STATUS2D_PATCH 0
+#define BAR_STATUS2D_PATCH 1
 
 /* Supplementary patch should you want to disable alpha for the status2d section */
 #define BAR_STATUS2D_NO_ALPHA_PATCH 0
@@ -460,13 +460,13 @@
  * This patch takes precedence over ATTACHASIDE_PATCH.
  * https://dwm.suckless.org/patches/attachabove/
  */
-#define ATTACHABOVE_PATCH 1
+#define ATTACHABOVE_PATCH 0
 
 /* This patch adds new clients on top of the stack.
  * This patch takes precedence over ATTACHBELOW_PATCH.
  * https://dwm.suckless.org/patches/attachaside/
  */
-#define ATTACHASIDE_PATCH 0
+#define ATTACHASIDE_PATCH 1
 
 /* This patch adds new clients below the selected client.
  * This patch takes precedence over ATTACHBOTTOM_PATCH.
@@ -783,7 +783,7 @@
 /* This patch allows you to move clients around in the stack and swap them with the master.
  * https://dwm.suckless.org/patches/movestack/
  */
-#define MOVESTACK_PATCH 0
+#define MOVESTACK_PATCH 1
 
 /* This patch allows you to change the names of tags during runtime.
  *
@@ -908,11 +908,11 @@
  *
  * https://github.com/bakkeby/patches/wiki/renamedscratchpads
  */
-#define RENAMED_SCRATCHPADS_PATCH 1
+#define RENAMED_SCRATCHPADS_PATCH 0
 
 /* Renamed scratchpads option to auto-hide scratchpads when moving to a different tag.
  * This behaviour is similar to that of the (multiple) scratchpads patch. */
-#define RENAMED_SCRATCHPADS_AUTO_HIDE_PATCH 1
+#define RENAMED_SCRATCHPADS_AUTO_HIDE_PATCH 0
 
 /* Shifts all clients per tag to leftmost unoccupied tags.
  *
@@ -990,7 +990,7 @@
  * feature in i3wm.
  * https://github.com/GasparVardanyan/dwm-scratchpad
  */
-#define SCRATCHPAD_ALT_1_PATCH 0
+#define SCRATCHPAD_ALT_1_PATCH 1
 
 /* This patch persists some settings across window manager restarts. These include but are not
  * limited to:

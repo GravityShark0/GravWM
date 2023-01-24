@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* See LICENSE file for copVyright and license details. */
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -79,16 +79,6 @@ static char urgbgcolor[]                 = "#222222";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
-static char scratchselfgcolor[]          = "#FFF7D4";
-static char scratchselbgcolor[]          = "#77547E";
-static char scratchselbordercolor[]      = "#894B9F";
-static char scratchselfloatcolor[]       = "#894B9F";
-
-static char scratchnormfgcolor[]         = "#FFF7D4";
-static char scratchnormbgcolor[]         = "#664C67";
-static char scratchnormbordercolor[]     = "#77547E";
-static char scratchnormfloatcolor[]      = "#77547E";
-
 static char normTTBbgcolor[]             = "#330000";
 static char normLTRbgcolor[]             = "#330033";
 static char normMONObgcolor[]            = "#000033";
@@ -136,8 +126,6 @@ static const unsigned int alphas[][3] = {
 	[SchemeHidNorm]      = { OPAQUE, baralpha, borderalpha },
 	[SchemeHidSel]       = { OPAQUE, baralpha, borderalpha },
 	[SchemeUrg]          = { OPAQUE, baralpha, borderalpha },
-	[SchemeScratchSel]  = { OPAQUE, baralpha, borderalpha },
-	[SchemeScratchNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeFlexActTTB]   = { OPAQUE, baralpha, borderalpha },
 	[SchemeFlexActLTR]   = { OPAQUE, baralpha, borderalpha },
 	[SchemeFlexActMONO]  = { OPAQUE, baralpha, borderalpha },
@@ -184,8 +172,6 @@ static char *colors[][ColCount] = {
 	[SchemeHidNorm]      = { hidnormfgcolor,   hidnormbgcolor,   c000000,              c000000 },
 	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 },
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
-	[SchemeScratchSel]  = { scratchselfgcolor, scratchselbgcolor, scratchselbordercolor, scratchselfloatcolor },
-	[SchemeScratchNorm] = { scratchnormfgcolor, scratchnormbgcolor, scratchnormbordercolor, scratchnormfloatcolor },
 	[SchemeFlexActTTB]   = { titleselfgcolor,  actTTBbgcolor,    actTTBbgcolor,        c000000 },
 	[SchemeFlexActLTR]   = { titleselfgcolor,  actLTRbgcolor,    actLTRbgcolor,        c000000 },
 	[SchemeFlexActMONO]  = { titleselfgcolor,  actMONObgcolor,   actMONObgcolor,       c000000 },
@@ -224,9 +210,6 @@ static char *colors[][ColCount] = {
 
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
-
-static const char *scratchpadcmd[] = {"s", "st", "-n", "spterm", NULL};
-//static const char *scratchpadcmd[] = {"s", "st", NULL};
 
 
 /* Tags
@@ -295,10 +278,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	//RULE(.class = "Gimp", .tags = 1 << 4)
 	//RULE(.class = "Firefox", .tags = 1 << 7)
-	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 };
-
-
 
 /* Bar rules allow you to configure what is shown where on the bar, as well as
  * introducing your own bar modules.
@@ -316,9 +296,9 @@ static const BarRule barrules[] = {
 	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_stbutton,           draw_stbutton,          click_stbutton,          NULL,                    "statusbutton" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
-	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,             draw_status,            click_status,            NULL,                    "status" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	{ -1,        0,     BAR_ALIGN_NONE,   width_flexwintitle,       draw_flexwintitle,      click_flexwintitle,      NULL,                    "flexwintitle" },
 };
 
@@ -329,6 +309,7 @@ static const int nstack      = 0;    /* number of clients in primary stack area 
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int decorhints  = 1;    /* 1 means respect decoration hints */
+
 
 
 /* mouse scroll resize */
@@ -375,6 +356,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *droficmd[] = {
@@ -394,13 +376,16 @@ static const char *dmenucmd[] = {
 static const char *termcmd[]  = { "st", NULL };
 static const char *filecmd[]  = { "st", "joshuto", NULL };
 
+/* This defines the name of the executable that handles the bar (used for signalling purposes) */
+#define STATUSBAR "dwmblocks"
+
 
 
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
   { MODKEY|ShiftMask,             XK_e,          spawn,                  {.v = filecmd } },
-  { MODKEY,                       XK_p,          spawn,                  {.v = droficmd } },
-	{ MODKEY|ShiftMask,             XK_p,          spawn,                  {.v = dmenucmd } },
+  { MODKEY,                       XK_w,          spawn,                  {.v = droficmd } },
+	{ MODKEY|ShiftMask,             XK_w,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY,                       XK_e,          spawn,                  {.v = termcmd } },
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
@@ -424,6 +409,8 @@ static const Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_Up,         moveresize,             {.v = "0x 0y 0w -25h" } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_Right,      moveresize,             {.v = "0x 0y 25w 0h" } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_Left,       moveresize,             {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ShiftMask,             XK_j,          movestack,              {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,          movestack,              {.i = -1 } },
 	{ MODKEY,                       XK_Return,     zoom,                   {0} },
 	{ MODKEY|Mod1Mask,              XK_u,          incrgaps,               {.i = +1 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
@@ -458,15 +445,13 @@ static const Key keys[] = {
 	{ MODKEY|Mod5Mask|ShiftMask,    XK_Tab,        rotatelayoutaxis,       {.i = -3 } },   /* flextile, 3 = stack axis */
 	{ MODKEY|Mod5Mask|Mod1Mask,     XK_Tab,        rotatelayoutaxis,       {.i = -4 } },   /* flextile, 4 = secondary stack axis */
 	{ MODKEY|ControlMask,           XK_Return,     mirrorlayout,           {0} },          /* flextile, flip master and stack areas */
-	{ MODKEY|ShiftMask,                 XK_space,      setlayout,              {0} },
+	{ MODKEY|ShiftMask,             XK_space,      setlayout,              {0} },
 	{ MODKEY,                       XK_space,      togglefloating,         {0} },
 	{ MODKEY|ShiftMask,             XK_Escape,     togglenomodbuttons,     {0} },
-	{ MODKEY,                       XK_grave,      togglescratch,          {.v = scratchpadcmd } },
-	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
-	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },
+	{ MODKEY,                       XK_grave,      scratchpad_show,        {0} },
+	{ MODKEY|ShiftMask,             XK_grave,      scratchpad_hide,        {0} },
+	{ MODKEY,                       XK_equal,      scratchpad_remove,      {0} },
 	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },
 	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
@@ -490,13 +475,15 @@ static const Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask           button          function        argument */
-	{ ClkButton,            0,                   Button1,        spawn,          {.v = droficmd } },
+	{ ClkButton,            0,                   Button1,        spawn,          {.v = dmenucmd } },
 	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,                   Button3,        layoutmenu,     {0} },
 	{ ClkWinTitle,          0,                   Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,                   Button3,        showhideclient, {0} },
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
+	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
+	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
 	/* placemouse options, choose which feels more natural:
 	 *    0 - tiled position is relative to mouse cursor
 	 *    1 - tiled postiion is relative to window center
