@@ -24,25 +24,12 @@ awesomewm 195-203m  2.2 and 2.2   74.0 and just laggy even when switching
 ```
 #### going to test
 ```
-bmpanel
-Bmpanel — Lightweight, NETWM compliant panel.
-https://github.com/nsf/bmpanel2 || bmpanel2AUR
-Lemonbar — A featherweight bar based on XCB. Provides UTF-8 support, background and foreground colors, text alignment, and not much more.
-https://github.com/LemonBoy/bar || lemonbar-gitAUR
-LXPanel — Lightweight X11 desktop panel and part of the LXDE desktop.
-https://lxde.org/ || lxpanel
-PerlPanel — The ideal accompaniment to a light-weight Window Manager such as OpenBox, or a desktop-drawing program like iDesk.
-https://savannah.nongnu.org/projects/perlpanel || perlpanel-gitAUR
 Plank — Elegant, simple, clean dock from pantheon desktop environment.
 https://launchpad.net/plank || plank
 Polybar — a fast and easy-to-use tool for creating status bars.
 https://github.com/jaagr/polybar || polybar
-Tint2 — Simple panel/taskbar developed specifically for Openbox.
-https://gitlab.com/o9000/tint2 || tint2
 xmobar — A lightweight, text-based, status bar written in Haskell.
 https://archives.haskell.org/projects.haskell.org/xmobar/ || xmobar
-yambar — A modular and lightweight status panel for X11 and Wayland that goes to great lengths to be both CPU and battery efficient.
-https://codeberg.org/dnkl/yambar || yambarAUR
 ```
 
 To be included:
@@ -58,17 +45,17 @@ To be included:
 To Do:
 - Make the Grav theme
 - Setup the wm
-- Maybe use polybar/lemonbar/tint2 or the default bar
-- Setup st 50%
-- Setup dmenu
-- Setup compositor
-- Setup nvchad
-- Setup awesome/Eww widgets
+- Maybe use polybar/dwmbar/xmobar
+- Setup st 90%?
+- Setup dmenu /
+- Setup compositor /
+- Setup nvchad 50% no themes
+- Setup awesome/Eww widgets X
 
 Maybe to do:
 - Make a custom font
 - Make 3 custom backgrounds
-- Add a fish/zsh/mksh profile
+- Add a fish/mksh profile
 
 Credits:
 - [Bakkeby](https://github.com/bakkeby/)
