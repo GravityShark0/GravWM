@@ -163,11 +163,11 @@ unsigned int defaultfg = 259;
 unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
 
-unsigned int const currentBg = 6, buffSize = 2048;
+unsigned int const currentBg = 260, buffSize = 2048;
 /// Enable double / triple click yanking / selection of word / line.
 int const mouseYank = 1, mouseSelect = 0;
 /// [Vim Browse] Colors for search results currently on screen.
-unsigned int const highlightBg = 160, highlightFg = 159;
+unsigned int const highlightBg = 261, highlightFg = 262;
 char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~", wDelL[] = " \t";
 char *nmKeys [] = {              ///< Shortcusts executed in normal mode
   "R/Building\nN", "r/Building\n", "X/juli@machine\nN", "x/juli@machine\n",
@@ -221,7 +221,7 @@ static unsigned int defaultattr = 11;
 
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
-    { "font2",        STRING,  &font2 },
+        { "font2",        STRING,  &font2 },
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
@@ -238,8 +238,9 @@ ResourcePref resources[] = {
 		{ "color13",      STRING,  &colorname[13] },
 		{ "color14",      STRING,  &colorname[14] },
 		{ "color15",      STRING,  &colorname[15] },
-    { "highlightFg",  STRING,  &colorname[159] },
-    { "highlightBg",  STRING,  &colorname[160] },
+        { "currentBg",    STRING,  &colorname[260] },
+        { "highlightBg",  STRING,  &colorname[261] },
+        { "highlightFg",  STRING,  &colorname[262] },
 		{ "background",   STRING,  &colorname[258] },
 		{ "foreground",   STRING,  &colorname[259] },
 		{ "cursorColor",  STRING,  &colorname[256] },
@@ -251,9 +252,9 @@ ResourcePref resources[] = {
 		{ "bellvolume",   INTEGER, &bellvolume },
 		{ "tabspaces",    INTEGER, &tabspaces },
 		{ "borderpx",     INTEGER, &borderpx },
-    { "doubleclicktimeout",    INTEGER, &doubleclicktimeout },
-	  { "tripleclicktimeout",    INTEGER, &tripleclicktimeout },
-    { "cursorthickness",       INTEGER, &cursorthickness},
+        { "doubleclicktimeout",    INTEGER, &doubleclicktimeout },
+	    { "tripleclicktimeout",    INTEGER, &tripleclicktimeout },
+        { "cursorthickness",       INTEGER, &cursorthickness},
 		{ "cwscale",      FLOAT,   &cwscale },
 		{ "chscale",      FLOAT,   &chscale },
 		{ "alpha",        FLOAT,   &alpha },};
@@ -296,8 +297,8 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,   {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,     {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,        {.i =  0} },
-	{ TERMMOD,              XK_Left,       zoom,            {.f = +1} },
-	{ TERMMOD,              XK_Right,        zoom,            {.f = -1} },
+	{ TERMMOD,              XK_Right,       zoom,            {.f = +1} },
+	{ TERMMOD,              XK_Left,        zoom,            {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,       {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,        {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
