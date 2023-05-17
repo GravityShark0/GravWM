@@ -1,5 +1,4 @@
 ! dwm
-
 dwm.fonts:UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
 dwm.normfgcolor:#fdeffd
 dwm.normbgcolor:#0a060f
@@ -35,7 +34,6 @@ dwm.hidnormfgcolor:#cbbdcb
 dwm.hidnormbgcolor:#0a060f
 dwm.hidselfgcolor:#e9dbe9
 dwm.hidselbgcolor:#0a060f
-
 
 ! dwm.urgfgcolor             :#e9dbe9
 ! dwm.urgbgcolor             :
@@ -97,29 +95,22 @@ st.chscale:         1.0
 st.cwscale:         1.0
 
 st.blinktimeout:    800
-
 st.cursorshape:     4
-
 st.bellvolume:      0
-
 st.termname:        st-256color
-
-st.tabspaces:       8
+st.tabspaces:       4
 
 st.alpha:           0.95
-!st.alphaUnfocused: 0.6
-!st.grad_alpha:     0.54
-!st.stat_alpha:     0.46
-
 
 ! colors
 st.foreground:   #fdeffd
 st.background:   #0a060f
-!st.background_unfocused: #200000
-!st.background_focused:   #191c25
+
 ! vim select
-st.higtlightFg:  #fdeffd
-st.highlightBg:  #191c25
+st.currentBg:    #404A59
+!st.higtlightFg: #fdeffd
+!st.highlightBg: #191c25
+
 ! normal colors (black,red,green,yellow,blue,magenta,cyan,white)
 st.color0:       #2e313d
 st.color1:       #CF6363
@@ -129,8 +120,8 @@ st.color4:       #5691BF
 st.color5:       #A25EC4
 st.color6:       #5BC2BB
 st.color7:       #b5b4c9
-! bright colors (black,red,green,yellow,blue,magenta,cyan,white)
 
+! bright colors (black,red,green,yellow,blue,magenta,cyan,white)
 st.color8:       #5b5f71
 st.color9:       #FF7A7A
 st.color10:      #82FFB9
@@ -148,7 +139,7 @@ st.color15:      #fdeffd
 !st.color20:     #838184
 !st.color21:     #c3c3c3
 
-!dmenu
+! dmenu
 dmenu.font:           UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
 dmenu.background:     #0a060f
 dmenu.foreground:     #fdeffd
