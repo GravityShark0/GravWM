@@ -1,5 +1,6 @@
 # GravWM
 ### a quest to make the perfect the rice (or desktop environment?)
+or basically a glorified dotfiles
 
 
 - goal 1: make a beutiful rice that still has a nice lightweight footprint
