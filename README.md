@@ -16,7 +16,7 @@ i have 2 options
 
 #### primitive wm testing of ram and cpu usage (lower beter)
 ```
-          mem htop  mem %         cpu %
+          mem htop  mem %         cpu % (spamming swap on tags/virtual desktops)
 xmonad    179-183m  0.3           4.0
 base dwm  165-185m  0.8           2.6
 my dwm    154-167m  0.9           30.3 and very laggy
@@ -26,8 +26,6 @@ awesomewm 195-203m  2.2 and 2.2   74.0 and just laggy even when switching
 ```
 #### going to test
 ```
-Plank — Elegant, simple, clean dock from pantheon desktop environment.
-https://launchpad.net/plank || plank
 Polybar — a fast and easy-to-use tool for creating status bars.
 https://github.com/jaagr/polybar || polybar
 xmobar — A lightweight, text-based, status bar written in Haskell.
