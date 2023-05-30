@@ -2,7 +2,7 @@
 ### a quest to make the perfect the rice (or desktop environment?)
 or basically a glorified dotfiles
 
-- Updetos: i currently have a morepowerful laptop and run kde plasma, may revisit this when i have enough time
+## Updetos: i currently have a morepowerful laptop and run kde plasma, may revisit this when i have enough time
 
 - goal 1: make a beutiful rice that still nicely lightweight
 - goal 2: is to make a one command setup from blinking cursor, to a completely riced out wm with a nice theme
