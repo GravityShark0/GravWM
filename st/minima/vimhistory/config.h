@@ -151,6 +151,10 @@ static const char *colorname[] = {
 	"#555555", /* 257 -> rev cursor*/
 	"#000000", /* 258 -> bg */
 	"#e5e5e5", /* 259 -> fg */
+
+	"magenta3", /* 260 -> currentBg */
+	"gray50",   /* 261 -> highlightBg */
+	"#5c5cff",  /* 262 -> highlightFg */
 };
 
 
@@ -158,16 +162,16 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultbg = 258;
-unsigned int defaultfg = 259;
 unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
+unsigned int defaultbg = 258;
+unsigned int defaultfg = 259;
 
-unsigned int const currentBg = 260, buffSize = 2048;
+unsigned int currentBg = 260, buffSize = 2048;
 /// Enable double / triple click yanking / selection of word / line.
 int const mouseYank = 1, mouseSelect = 0;
 /// [Vim Browse] Colors for search results currently on screen.
-unsigned int const highlightBg = 261, highlightFg = 262;
+unsigned int highlightBg = 261, highlightFg = 262;
 char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~", wDelL[] = " \t";
 char *nmKeys [] = {              ///< Shortcusts executed in normal mode
   "R/Building\nN", "r/Building\n", "X/juli@machine\nN", "x/juli@machine\n",
@@ -238,12 +242,13 @@ ResourcePref resources[] = {
 		{ "color13",      STRING,  &colorname[13] },
 		{ "color14",      STRING,  &colorname[14] },
 		{ "color15",      STRING,  &colorname[15] },
+		{ "cursorColor",  STRING,  &colorname[256] },
+		{ "rcursorColor", STRING,  &colorname[257] },
+		{ "background",   STRING,  &colorname[258] },
+		{ "foreground",   STRING,  &colorname[259] },
         { "currentBg",    STRING,  &colorname[260] },
         { "highlightBg",  STRING,  &colorname[261] },
         { "highlightFg",  STRING,  &colorname[262] },
-		{ "background",   STRING,  &colorname[258] },
-		{ "foreground",   STRING,  &colorname[259] },
-		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },
