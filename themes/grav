@@ -87,7 +87,7 @@ dwm.selfloatbgcolor        :#26264A
 ! st
 st.font:            UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
 st.font2:           Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true
-!st.font2:           Symbols Nerd Font Mono:pixelsize=10:style=Regular:antialias=true:autohint=true
+!st.font2:          Symbols Nerd Font Mono:pixelsize=10:style=Regular:antialias=true:autohint=true
 
 st.borderpx:        15
 
@@ -103,13 +103,16 @@ st.tabspaces:       4
 st.alpha:           0.8
 
 ! colors
+st.cursorColor:  #DBDCFF
+!st.rcursorColor:
 st.foreground:   #fdeffd
 st.background:   #0a060f
 
 ! vim select
-st.currentBg:    #404A59
-!st.higtlightFg: #fdeffd
-!st.highlightBg: #191c25
+st.currentBg:   #404A59
+st.highlightFg: #5c5cff
+!#DBDCFF !#fdeffd
+st.highlightBg: #191c25
 
 ! normal colors (black,red,green,yellow,blue,magenta,cyan,white)
 st.color0:       #2e313d
