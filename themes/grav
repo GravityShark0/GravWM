@@ -100,7 +100,7 @@ st.bellvolume:      0
 st.termname:        st-256color
 st.tabspaces:       4
 
-st.alpha:           0.95
+st.alpha:           0.8
 
 ! colors
 st.foreground:   #fdeffd
@@ -143,15 +143,15 @@ st.color15:      #fdeffd
 dmenu.font:           UbuntuMono Nerd Font:pixelsize=18:style=Regular:antialias=true:autohint=true
 dmenu.background:     #0a060f
 dmenu.foreground:     #fdeffd
-dmenu.selbackground:  #1e1a23
+dmenu.selbackground:  #191c25
 dmenu.selforeground:  #dfd1df
-dmenu.outbackground:  #141019
+dmenu.outbackground:  #0F0B14
 dmenu.outforeground:  #f3e5f3
-dmenu.midbackground:  #141019
+dmenu.midbackground:  #0F0B14
 dmenu.midforeground:  #f3e5f3
 dmenu.selhlbackground:#1e1a23
 dmenu.selhlforeground:#e9dbe9
-dmenu.hlbackground:   #141019
+dmenu.hlbackground:   #0F0B14
 dmenu.hlforeground:   #f3e5f3
-dmenu.hpbackground:   #141019
+dmenu.hpbackground:   #0F0B14
 dmenu.hpforeground:   #f3e5f3
