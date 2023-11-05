@@ -25,7 +25,6 @@
 /* macros */
 #define INTERSECT(x,y,w,h,r)  (MAX(0, MIN((x)+(w),(r).x_org+(r).width)  - MAX((x),(r).x_org)) \
                              * MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
-#define LENGTH(X)             (sizeof X / sizeof X[0])
 #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
 #define OPAQUE                0xffU
 #define OPACITY               "_NET_WM_WINDOW_OPACITY"
@@ -59,9 +58,6 @@ static int dmx = 0, dmy = 0; /* put dmenu at these x and y offsets */
 static unsigned int dmw = 0; /* make dmenu this wide */
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
-static int vp; /* vertical padding for bar */
-static int sp; /* side padding for bar */
-static int reject_no_match = 0;
 static size_t cursor;
 static struct item *items = NULL;
 static struct item *matches, *matchend;
@@ -247,7 +243,6 @@ drawmenu(void)
 
 	recalculatenumbers();
 	rpad = TEXTW(numbers);
-	rpad += 2 * sp;
 	rpad += border_width;
 	if (lines > 0) {
 		/* draw grid */
@@ -407,11 +402,6 @@ insert(const char *str, ssize_t n)
 	if (strlen(text) + n > sizeof text - 1)
 		return;
 
-	static char last[BUFSIZ] = "";
-	if (reject_no_match) {
-		/* store last text value in case we need to revert it */
-		memcpy(last, text, BUFSIZ);
-	}
 
 	/* move existing text out of the way, insert new text, and update cursor */
 	memmove(&text[cursor + n], &text[cursor], sizeof text - cursor - MAX(n, 0));
@@ -420,12 +410,6 @@ insert(const char *str, ssize_t n)
 	cursor += n;
 	match();
 
-	if (!matches && reject_no_match) {
-		/* revert to last text value if theres no match */
-		memcpy(text, last, BUFSIZ);
-		cursor -= n;
-		match();
-	}
 }
 
 static size_t
@@ -554,14 +538,6 @@ keypress(XKeyEvent *ev)
 		case XK_j: ksym = XK_Next;  break;
 		case XK_k: ksym = XK_Prior; break;
 		case XK_l: ksym = XK_Down;  break;
-		case XK_p:
-			navhistory(-1);
-			buf[0]=0;
-			break;
-		case XK_n:
-			navhistory(1);
-			buf[0]=0;
-			break;
 		default:
 			return;
 		}
@@ -678,8 +654,6 @@ insert:
 			puts(text);
 		}
 		if (!(ev->state & ControlMask)) {
-			savehistory((sel && !(ev->state & ShiftMask))
-				    ? sel->text : text);
 			cleanup();
 			exit(0);
 		}
@@ -794,24 +768,27 @@ readstdin(void)
 {
 	char *line = NULL;
 
-	size_t size = 0;
-	size_t i, junk;
+	size_t i, linesiz, itemsiz = 0;
 	ssize_t len;
 
 
 	/* read each line from stdin and add it to the item list */
-	for (i = 0; (len = getline(&line, &junk, stdin)) != -1; i++, line = NULL) {
-		if (i + 1 >= size / sizeof *items)
-			if (!(items = realloc(items, (size += BUFSIZ))))
-				die("cannot realloc %zu bytes:", size);
+	for (i = 0; (len = getline(&line, &linesiz, stdin)) != -1; i++) {
+		if (i + 1 >= itemsiz) {
+			itemsiz += 256;
+			if (!(items = realloc(items, itemsiz * sizeof(*items))))
+				die("cannot realloc %zu bytes:", itemsiz * sizeof(*items));
+		}
 		if (line[len - 1] == '\n')
 			line[len - 1] = '\0';
 
-		items[i].text = line;
+		if (!(items[i].text = strdup(line)))
+			die("strdup:");
 		items[i].out = 0;
 
 		items[i].hp = arrayhas(hpitems, hplength, items[i].text);
 	}
+	free(line);
 	if (items)
 		items[i].text = NULL;
 	lines = MIN(lines, i);
@@ -937,8 +914,8 @@ setup(void)
 		| ButtonPressMask
 	;
 	win = XCreateWindow(
-		dpy, parentwin,
-		x + sp, y + vp - (topbar ? 0 : border_width * 2), mw - 2 * sp - border_width * 2, mh, border_width,
+		dpy, root,
+		x, y - (topbar ? 0 : border_width * 2), mw - border_width * 2, mh, border_width,
 		depth, InputOutput, visual,
 		CWOverrideRedirect|CWBackPixel|CWBorderPixel|CWColormap|CWEventMask, &swa
 	);
@@ -957,6 +934,7 @@ setup(void)
 
 	XMapRaised(dpy, win);
 	if (embed) {
+		XReparentWindow(dpy, win, parentwin, x, y);
 		XSelectInput(dpy, parentwin, FocusChangeMask | SubstructureNotifyMask);
 		if (XQueryTree(dpy, parentwin, &dw, &w, &dws, &du) && dws) {
 			for (i = 0; i < du && dws[i] != win; ++i)
@@ -976,7 +954,6 @@ usage(void)
 		"f"
 		"s"
 		"F"
-		"R" // (changed from r to R due to conflict with INCREMENTAL_PATCH)
 		"] "
 		"[-g columns] "
 		"[-l lines] [-p prompt] [-fn font] [-m monitor]"
@@ -988,7 +965,6 @@ usage(void)
 		" [-hb color] [-hf color] [-hp items]"
 		"\n            "
 		" [-h height]"
-		" [-H histfile]"
 		" [-X xoffset] [-Y yoffset] [-W width]" // (arguments made upper case due to conflicts)
 		"\n             [-nhb color] [-nhf color] [-shb color] [-shf color]" // highlight colors
 		"\n");
@@ -1013,11 +989,23 @@ main(int argc, char *argv[])
 		die("could not get embedding window attributes: 0x%lx",
 		    parentwin);
 
+	/* These need to be checked before we init the visuals. */
+	for (i = 1; i < argc; i++) {
+		if (!strcmp(argv[i], "-o")) {  /* opacity, pass -o 0 to disable alpha */
+			opacity = atoi(argv[++i]);
+		} else {
+			continue;
+		}
+		argv[i][0] = '\0'; // mark as used
+	}
 	xinitvisual();
 	drw = drw_create(dpy, screen, root, wa.width, wa.height, visual, depth, cmap);
 	readxresources();
 
-	for (i = 1; i < argc; i++)
+	for (i = 1; i < argc; i++) {
+		if (argv[i][0] == '\0')
+			continue;
+
 		/* these options take no arguments */
 		if (!strcmp(argv[i], "-v")) {      /* prints version information */
 			puts("dmenu-"VERSION);
@@ -1033,13 +1021,9 @@ main(int argc, char *argv[])
 			fuzzy = !fuzzy;
 		} else if (!strcmp(argv[i], "-ex")) { /* expect key */
 			expected = argv[++i];
-		} else if (!strcmp(argv[i], "-R")) { /* reject input which results in no match */
-			reject_no_match = 1;
 		} else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */
-		else if (!strcmp(argv[i], "-H"))
-			histfile = argv[++i];
 		else if (!strcmp(argv[i], "-g")) {   /* number of columns in grid */
 			columns = atoi(argv[++i]);
 			if (columns && lines == 0)
@@ -1091,16 +1075,16 @@ main(int argc, char *argv[])
 			embed = argv[++i];
 		else if (!strcmp(argv[i], "-bw"))  /* border width around dmenu */
 			border_width = atoi(argv[++i]);
-		else
+		else {
 			usage();
+		}
+	}
 
 	if (!drw_fontset_create(drw, (const char**)fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 
 	lrpad = drw->fonts->h;
 
-	sp = sidepad;
-	vp = (topbar ? vertpad : - vertpad);
 
 	if (lineheight == -1)
 		lineheight = drw->fonts->h * 2.5;
@@ -1109,7 +1093,6 @@ main(int argc, char *argv[])
 	if (pledge("stdio rpath", NULL) == -1)
 		die("pledge");
 #endif
-	loadhistory();
 
 	if (fast && !isatty(0)) {
 		grabkeyboard();

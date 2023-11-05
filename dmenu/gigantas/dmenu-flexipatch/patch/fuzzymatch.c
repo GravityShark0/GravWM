@@ -87,5 +87,7 @@ fuzzymatch(void)
 		matches = lhpprefix;
 	}
 	curr = sel = matches;
+
+
 	calcoffsets();
 }

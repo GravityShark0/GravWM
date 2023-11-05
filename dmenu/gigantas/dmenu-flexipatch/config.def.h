@@ -4,8 +4,6 @@
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom */
 static int opacity = 1;                     /* -o  option; if 0, then alpha is disabled */
 static int fuzzy = 1;                       /* -F  option; if 0, dmenu doesn't use fuzzy matching */
-static const int vertpad = 10;              /* vertical padding of bar */
-static const int sidepad = 10;              /* horizontal padding of bar */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static char *fonts[] =
 {
@@ -44,8 +42,6 @@ static unsigned int lines      = 0;
 static unsigned int columns    = 0;
 static unsigned int lineheight = 0;         /* -h option; minimum height of a menu line     */
 static unsigned int min_lineheight = 8;
-static unsigned int maxhist    = 15;
-static int histnodup           = 1;	/* if 0, record repeated histories */
 
 /*
  * Characters not considered part of a word while deleting words
